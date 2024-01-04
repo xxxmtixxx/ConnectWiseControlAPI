@@ -9,7 +9,10 @@ function Get-OTP {
         # OTP time window in seconds
         $TimeWindow = 30
     )
-    $secret = $secureSecret | ConvertFrom-SecureString -AsPlainText
+    
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureSecret)
+    $secret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+
     $Base32Charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
     # Convert the secret from BASE32 to a byte array
     # via a BigInteger so we can use its bit-shifting support,
