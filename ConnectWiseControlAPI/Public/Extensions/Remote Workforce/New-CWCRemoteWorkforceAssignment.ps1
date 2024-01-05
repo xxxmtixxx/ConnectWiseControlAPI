@@ -2,9 +2,7 @@ function New-CWCRemoteWorkforceAssignment {
     [CmdletBinding(SupportsShouldProcess)]
     param(
         [Parameter(Mandatory=$True)]
-        [guid[]]$GUID,
-        [Parameter(Mandatory=$True)]
-        [string]$Username,
+        [guid]$SessionID,
         [string]$DisplayName
     )
 
@@ -12,7 +10,7 @@ function New-CWCRemoteWorkforceAssignment {
 
     $Body = ConvertTo-Json @(
         $GUID,
-        "UserName:$($Username),UserDisplayName:$($DisplayName)"
+        "UserName:$($UserName),UserDisplayName:$($DisplayName)"
     )
     Write-Verbose $Body
 

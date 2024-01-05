@@ -1,11 +1,13 @@
-function Add-CWCRemoteWorkforceRequiredRole {
+function Add-CWCUserRequiredRole {
     [CmdletBinding()]
-    param()
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$RoleName
+    )
 
     $Endpoint = 'Services/SecurityService.ashx/SaveRole'
 
     $SessionGroups = @('My Assigned Machines')
-    $RoleName = 'Remote Workforce'
 
     $Body = ConvertTo-Json -Depth 10 @(
         "",
