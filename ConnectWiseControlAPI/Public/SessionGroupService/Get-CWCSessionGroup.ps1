@@ -9,5 +9,18 @@ function Get-CWCSessionGroup {
     Method = 'Get'
   }
 
-  Invoke-CWCWebRequest -Arguments $WebRequestArguments
+  $response = Invoke-CWCWebRequest -Arguments $WebRequestArguments
+
+  # Assuming the response contains an array of session groups
+  $sessionGroups = $response | ForEach-Object {
+    # Create a custom object for each session group that includes the desired properties
+    [PSCustomObject]@{
+      Name = $_.Name
+      SessionFilter = $_.SessionFilter
+      SessionType = $_.SessionType
+      SubgroupExpressions = $_.SubgroupExpressions
+    }
+  }
+
+  return $sessionGroups
 }
