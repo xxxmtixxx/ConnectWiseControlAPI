@@ -28,7 +28,7 @@ This is a fork of ChrisTaylorCodes' and Luke-Williams9 CWC API module.
 <!-- Summary -->
 
 
-## [Install](https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/master.zip)
+## [DOWNLOAD](https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/master.zip)
 
  The module can be installed by unzipping the master zip into one of your powershell modules folder, or by running the following one-liner:
 
