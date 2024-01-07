@@ -11,9 +11,6 @@
     <a href="ConnectWiseControlAPI_Functions.md">List of Functions</a> •
     <a href="./Examples">Examples</a> •
     <a href="#install">Install</a> •
-    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md">Contribute</a> •
-    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md#reporting-bugs">Submit a Bug</a> •
-    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md#suggesting-enhancements">Request a Feature</a>
 </p>
 
 <h4 align="center">
