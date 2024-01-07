@@ -11,9 +11,9 @@
     <a href="ConnectWiseControlAPI_Functions.md">List of Functions</a> •
     <a href="./Examples">Examples</a> •
     <a href="#install">Install</a> •
-    <a href="https://github.com/christaylorcodes/GitHub-Template/blob/main/CONTRIBUTING.md">Contribute</a> •
-    <a href="https://github.com/christaylorcodes/GitHub-Template/blob/main/CONTRIBUTING.md#reporting-bugs">Submit a Bug</a> •
-    <a href="https://github.com/christaylorcodes/GitHub-Template/blob/main/CONTRIBUTING.md#suggesting-enhancements">Request a Feature</a>
+    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md">Contribute</a> •
+    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md#reporting-bugs">Submit a Bug</a> •
+    <a href="https://github.com/xxxmtixxx/GitHub-Template/blob/main/CONTRIBUTING.md#suggesting-enhancements">Request a Feature</a>
 </p>
 
 <h4 align="center">
@@ -24,14 +24,14 @@ This is a PowerShell wrapper for ConnectWise Control
 
 <!-- Summary -->
 
-This is a fork of ChrisTaylorCodes' and  CWC API module.
+This is a fork of ChrisTaylorCodes' and Luke-Williams9 CWC API module.
 
 
 
 <!-- Summary -->
 
 
-## [Install](https://github.com/Luke-Williams9/ConnectWiseControlAPI/archive/refs/heads/master.zip)
+## [Install](https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/master.zip)
 
  The module can be installed by unzipping the master zip into one of your powershell modules folder, or by running the following one-liner:
 
