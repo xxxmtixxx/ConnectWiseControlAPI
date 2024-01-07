@@ -24,7 +24,7 @@ This is a PowerShell wrapper for ConnectWise Control
 
 <!-- Summary -->
 
-This is a fork of ChrisTaylorCodes' CWC API module. I got tired of waiting for him to add MFA support so I did it myself. This module makes it easy to leverage PowerShell to automate tasks in Control. Please see his original project for any further details.
+This is a fork of ChrisTaylorCodes' and  CWC API module.
 
 
 
@@ -36,12 +36,12 @@ This is a fork of ChrisTaylorCodes' CWC API module. I got tired of waiting for h
  The module can be installed by unzipping the master zip into one of your powershell modules folder, or by running the following one-liner:
 
 ```powershell
-$ModuleName='ConnectWiseControlAPI';$parentFldr='ConnectWiseControlAPI-master';$u='https://github.com/Luke-Williams9/ConnectWiseControlAPI/archive/refs/heads/master.zip';If($IsWindows){$s=';'}else{$s=':'};$mp=($Env:PSModulePath.split($s) -like "$HOME*")[0];$td='.'+$ModuleName+'_temp';$tempdir=Join-Path '~' $td;$z=Join-Path $tempdir ($ModuleName + '.zip');New-Item -path '~' -name $td -type 'directory' -ErrorAction SilentlyContinue;Invoke-WebRequest -Uri $u -OutFile $z;Expand-Archive $z -DestinationPath $tempdir -Force;New-Item -path $mp -name $ModuleName -ItemType 'directory' -ErrorAction SilentlyContinue;Copy-Item (Join-Path $tempdir $parentFldr $moduleName) -Destination $mp -Force -Recurse;Get-Module -listAvailable $ModuleName
+$url='https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/master.zip';$moduleName='ConnectWiseControlAPI';If($IsWindows){$s=';'}else{$s=':'};$modulePath=($Env:PSModulePath.split($s) -like "$HOME*")[0];if ($modulePath -eq $null) {$modulePath = Join-Path $HOME 'Documents\WindowsPowerShell\Modules'};$tempPath=Join-Path $env:TEMP ($moduleName+'.zip');Invoke-WebRequest -Uri $url -OutFile $tempPath;$tempDir='.'+$moduleName+'_temp';$extractPath=Join-Path '~' $tempDir;Expand-Archive -Path $tempPath -DestinationPath $extractPath -Force;$sourceFolder=Join-Path $extractPath ('ConnectWiseControlAPI-master/'+$moduleName);$destinationFolder=Join-Path $modulePath $moduleName;if (!(Test-Path $destinationFolder)) {New-Item -Path $destinationFolder -ItemType Directory | Out-Null};Copy-Item -Path $sourceFolder -Destination $destinationFolder -Recurse -Force
 ```
 
 ## Requirements
 
-* Now supports MFA! - <a href="https://github.com/Luke-Williams9/ConnectWiseControlAPI/blob/master/Examples/Connect_MFA.ps1">Connecting with MFA</a>
+* Now supports MFA! - <a href="https://github.com/xxxmtixxx/ConnectWiseControlAPI/blob/master/Examples/Connect_MFA.ps1">Connecting with MFA</a>
 
 * Requires your Control server to use https.
 
