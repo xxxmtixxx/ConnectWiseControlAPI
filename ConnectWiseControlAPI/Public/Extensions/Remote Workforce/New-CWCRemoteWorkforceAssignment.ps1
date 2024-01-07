@@ -33,7 +33,7 @@ function New-CWCRemoteWorkforceAssignment {
 
     # Create the body as an array of arrays and strings
     $Body = ConvertTo-CustomJson @(
-        @("All Machines by Company"),
+        @("All Machines"),
         @($SessionID.ToString()),
         "UserName:$UserName,UserDisplayName:$DisplayName"
     )
