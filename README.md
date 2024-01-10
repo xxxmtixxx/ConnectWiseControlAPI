@@ -8,7 +8,7 @@
 
 
 <p align="center">
-    <a href="ConnectWiseControlAPI_Functions.md">List of Functions</a> •
+    • <a href="ConnectWiseControlAPI_Functions.md">List of Functions</a> •
 </p>
 
 <h4 align="center">
