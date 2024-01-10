@@ -23,7 +23,8 @@ This is a PowerShell wrapper for ConnectWise Control
 
 This is a fork of ChrisTaylorCodes' and Luke-Williams9 CWC API module.
 
-
+The script I run to create users is:
+https://github.com/xxxmtixxx/ConnectWiseControlAPI/blob/master/Examples/CreateNewUser.ps1
 
 <!-- Summary -->
 
