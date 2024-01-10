@@ -21,8 +21,8 @@ This is a PowerShell wrapper for ConnectWise Control
 
 This is a fork of ChrisTaylorCodes' and Luke-Williams9 CWC API module.
 
-The script I run to create users is:
 https://github.com/xxxmtixxx/ConnectWiseControlAPI/blob/master/Examples/CreateNewUser.ps1
+The ConnectWise Control User Provisioning script is an automation tool designed to create new users and assign them to machines in ConnectWise Control. The script prompts for new user details, sets server variables, and defines the user's role. It then secures the user's password, installs and imports the necessary API module, and connects to the ConnectWise Control API. After creating the new user, it retrieves a list of machines/sessions, identifies the correct machine using its SessionID, and assigns the new user to that machine. If the machine isn't found, the script stops to prevent incorrect assignments. This efficient process streamlines user provisioning in ConnectWise Control.
 
 <!-- Summary -->
 
