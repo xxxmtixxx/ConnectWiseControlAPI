@@ -26,7 +26,7 @@ Once set up, the script connects to the ConnectWise Control API, creates the new
 
 This script is a part of the ConnectWise Control API project and is designed to make the user provisioning workflow as seamless and error-free as possible.
 
-[New User Provisioning Script](https://github.com/xxxmtixxx/ConnectWiseControlAPI/blob/master/Examples/CreateNewUser.ps1)
+[New User Provisioning Script](https://github.com/Rarity-Solutions/ConnectWiseControlAPI/blob/master/Examples/CreateNewUser.ps1)
 
 <!-- Summary -->
 
@@ -35,7 +35,7 @@ This script is a part of the ConnectWise Control API project and is designed to 
  The module can be installed by unzipping the master zip into one of your powershell modules folder, or by running the following one-liner:
 
 ```powershell
-$documentsPath=[Environment]::GetFolderPath('MyDocuments');$url='https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/main.zip';$moduleName='ConnectWiseControlAPI';$modulePath=Join-Path $documentsPath 'WindowsPowerShell\Modules';$tempPath=Join-Path $env:TEMP ($moduleName+'.zip');Invoke-WebRequest -Uri $url -OutFile $tempPath;$tempDir='.'+$moduleName+'_temp';$extractPath=Join-Path $HOME $tempDir;Expand-Archive -Path $tempPath -DestinationPath $extractPath -Force;$sourceFolder=Join-Path $extractPath ('ConnectWiseControlAPI-main/'+$moduleName);$destinationFolder=Join-Path $modulePath $moduleName;if (!(Test-Path $destinationFolder)) {New-Item -Path $destinationFolder -ItemType Directory | Out-Null};Copy-Item -Path "$sourceFolder\*" -Destination $destinationFolder -Recurse -Force; Remove-Item $tempPath, $extractPath -Recurse -Force
+$documentsPath=[Environment]::GetFolderPath('MyDocuments');$url='https://github.com/Rarity-Solutions/ConnectWiseControlAPI/archive/refs/heads/main.zip';$moduleName='ConnectWiseControlAPI';$modulePath=Join-Path $documentsPath 'WindowsPowerShell\Modules';$tempPath=Join-Path $env:TEMP ($moduleName+'.zip');Invoke-WebRequest -Uri $url -OutFile $tempPath;$tempDir='.'+$moduleName+'_temp';$extractPath=Join-Path $HOME $tempDir;Expand-Archive -Path $tempPath -DestinationPath $extractPath -Force;$sourceFolder=Join-Path $extractPath ('ConnectWiseControlAPI-main/'+$moduleName);$destinationFolder=Join-Path $modulePath $moduleName;if (!(Test-Path $destinationFolder)) {New-Item -Path $destinationFolder -ItemType Directory | Out-Null};Copy-Item -Path "$sourceFolder\*" -Destination $destinationFolder -Recurse -Force; Remove-Item $tempPath, $extractPath -Recurse -Force
 ```
 
 <!-- Summary -->

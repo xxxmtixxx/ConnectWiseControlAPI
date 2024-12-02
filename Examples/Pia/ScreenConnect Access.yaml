@@ -79,7 +79,7 @@ steps:
           # Install API Module
           Write-Host "Installing API Module..."
           $documentsPath = [Environment]::GetFolderPath('MyDocuments')
-          $url = 'https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/main.zip'
+          $url = 'https://github.com/Rarity-Solutions/ConnectWiseControlAPI/archive/refs/heads/main.zip'
           $moduleName = 'ConnectWiseControlAPI'
           $modulePath = Join-Path $documentsPath 'WindowsPowerShell\Modules'
           $tempPath = Join-Path $env:TEMP ($moduleName + '.zip')
@@ -178,7 +178,7 @@ steps:
           # Install API Module
           Write-Host "Installing API Module..."
           $documentsPath = [Environment]::GetFolderPath('MyDocuments')
-          $url = 'https://github.com/xxxmtixxx/ConnectWiseControlAPI/archive/refs/heads/main.zip'
+          $url = 'https://github.com/Rarity-Solutions/ConnectWiseControlAPI/archive/refs/heads/main.zip'
           $moduleName = 'ConnectWiseControlAPI'
           $modulePath = Join-Path $documentsPath 'WindowsPowerShell\Modules'
           $tempPath = Join-Path $env:TEMP ($moduleName + '.zip')
