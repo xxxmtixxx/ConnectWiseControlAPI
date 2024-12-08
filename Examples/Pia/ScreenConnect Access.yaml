@@ -1,4 +1,4 @@
-# Package to Create ScreenConnect User and Assign Access
+# Create ScreenConnect User and Assign Access
 
 conditions: 
 - name: 'client_filter' 
@@ -371,14 +371,20 @@ steps:
           
           Write-Host "Parsed start time: $timeStart"
           
-          # Capture end time
+          # Capture end time and ensure it's at least one minute after start time
           $timeEnd = [DateTime]::UtcNow
-
-          # Calculate time difference
           $timeDiff = $timeEnd - $timeStart
-          $timeDiffMinutes = [math]::Round($timeDiff.TotalMinutes, 2)
+          
+          # If time difference is less than 1 minute, adjust end time
+          if ($timeDiff.TotalMinutes -lt 1) {
+              $timeEnd = $timeStart.AddMinutes(1)
+          }
 
-          Write-Host "Time difference in minutes: $timeDiffMinutes minutes."
+          # Calculate final time difference and round up
+          $timeDiff = $timeEnd - $timeStart
+          $timeDiffMinutes = [math]::Ceiling($timeDiff.TotalMinutes)
+
+          Write-Host "Time difference in minutes (rounded up): $timeDiffMinutes minutes."
 
           $timeLogData = @{
               member = @{ id = [int]$memberId }
