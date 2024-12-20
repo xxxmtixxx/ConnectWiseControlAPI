@@ -8,6 +8,8 @@ function Get-CWCUser {
     try {
         Write-Host "Retrieving security configuration info..."
         $Security = Get-CWCSecurityConfigurationInfo -ErrorAction Stop
+        
+        # Filter for the 'Internal' user source
         $Internal = $Security.UserSources | Where-Object { $_.ResourceKey -eq $script:InternalUserSource }
         
         if (-not $Internal) {
@@ -16,6 +18,8 @@ function Get-CWCUser {
         }
 
         Write-Host "Searching for user in internal source..."
+        
+        # Search for the user by either username or email
         $UserMatch = $Internal.Users | Where-Object { $_.Name -eq $User -or $_.Email -eq $User }
         
         if ($UserMatch) {
