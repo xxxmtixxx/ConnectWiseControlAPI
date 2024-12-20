@@ -1,50 +1,41 @@
 function Get-CWCUser {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory=$True)]
-        [string]$User
+        [Parameter(Mandatory=$False)]
+        [string]$User = '*'
     )
 
     try {
         Write-Host "Retrieving user: $User"
 
-        # Retrieve security configuration info
-        $Security = Get-CWCSecurityConfigurationInfo -ErrorAction Stop
+        # Set the API endpoint URL
+        $Endpoint = 'Services/SecurityService.ashx/GetUser'
 
-        # Print the UserSources structure for debug purposes
-        if ($Security.UserSources) {
-            Write-Host "User Sources Available:" -ForegroundColor Green
-            $Security.UserSources | Format-Table -AutoSize
-        } else {
-            Write-Error "No User Sources Found."
-            return $null
+        # Create the body of the POST request
+        $Body = ConvertTo-Json @(
+            'InternalMembershipProvider', # Use InternalMembershipProvider as required
+            $User
+        )
+
+        # Create the web request arguments
+        $WebRequestArguments = @{
+            Endpoint = $Endpoint
+            Body = $Body
+            Method = 'Post'
         }
 
-        # Filter for the internal user source (InternalMembershipProvider)
-        $InternalUsers = $Security.UserSources | Where-Object { $_.ResourceKey -eq 'InternalMembershipProvider' }
+        # Call the API
+        Write-Host "Sending request to endpoint: $Endpoint for user $User"
+        $Response = Invoke-CWCWebRequest -Arguments $WebRequestArguments
 
-        if (-not $InternalUsers) {
-            Write-Error "Unable to find the InternalMembershipProvider user source."
-            return $null
-        }
-
-        # Extract users from the internal source
-        $Users = $InternalUsers.Users
-        if ($Users) {
-            Write-Host "Found $($Users.Count) users in the InternalMembershipProvider source."
-
-            # Search for the user by either Name or Email
-            $UserMatch = $Users | Where-Object { $_.Name -eq $User -or $_.Email -eq $User }
-
-            if ($UserMatch) {
-                Write-Host "Successfully retrieved user: $User"
-                return $UserMatch
-            } else {
-                Write-Error "User not found: $User"
-                return $null
-            }
+        if ($Response) {
+            Write-Host "Successfully retrieved user data for: $User"
+            
+            # Return only the email addresses of the users
+            $Emails = $Response | Select-Object -ExpandProperty Email
+            return $Emails
         } else {
-            Write-Host "No users found in the InternalMembershipProvider source."
+            Write-Warning "User not found: $User"
             return $null
         }
     } catch {
